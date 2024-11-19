@@ -1,0 +1,318 @@
+/* Base Styling */
+body {
+    font-family: Arial, sans-serif;
+    background-color: #f3f0ff;
+    color: #333;
+    margin: 0;
+    padding: 0;
+}
+
+/* App Layout */
+.App {
+    max-width: 1000px;
+    margin: auto;
+    padding: 20px;
+}
+
+/* Header */
+.header {
+    text-align: center;
+    padding: 20px;
+    background-color: #d7bce8;
+    color: #4b3061;
+    border-radius: 8px;
+}
+
+.header h1 {
+    font-size: 2.5em;
+    color: #4b3061;
+}
+
+.header-description {
+    font-size: 1.2em;
+    color: #6a4b8e;
+    margin-top: 5px;
+}
+
+/* Transaction, Budget, and Goals Sections */
+.transaction-entry, .budget-entry, .goals-section {
+    background-color: #fff;
+    padding: 25px;
+    border-radius: 8px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    margin-top: 30px;
+    margin-bottom: 20px;
+    color: #4b3061;
+    text-align: center;
+}
+
+.transaction-entry h2, .budget-entry h2, .goals-section h2 {
+    color: #6a4b8e;
+    margin-bottom: 15px;
+}
+
+.transaction-form, .budget-entry form, .goals-section form {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    padding: 10px;
+}
+
+.transaction-form label, .budget-entry label, .goals-section label {
+    margin: 10px 0;
+    width: 100%;
+    max-width: 400px;
+    display: flex;
+    align-items: center;
+    color: #4b3061;
+}
+
+.transaction-form label i, .budget-entry label i, .goals-section label i {
+    margin-right: 8px;
+    color: #6a4b8e;
+}
+
+.transaction-form input[type="text"],
+.transaction-form input[type="number"],
+.transaction-form input[type="date"],
+.transaction-form select,
+.budget-entry input[type="number"],
+.budget-entry select,
+.goals-section input[type="text"],
+.goals-section input[type="number"],
+.goals-section input[type="date"] {
+    width: 100%;
+    padding: 8px;
+    margin-left: 10px;
+    border: 1px solid #ddd;
+    border-radius: 4px;
+
+}
+
+/* Transaction Type */
+.transaction-type {
+    display: flex;
+    gap: 20px;
+    justify-content: center;
+    margin-bottom: 15px;
+}
+
+.transaction-type label {
+    display: flex;
+    align-items: center;
+    font-weight: bold;
+    cursor: pointer;
+    transition: color 0.3s;
+}
+
+.transaction-type label:hover {
+    color: #6a4b8e;
+}
+
+.transaction-type label i {
+    margin-right: 5px;
+}
+
+
+/* Buttons */
+.add-button, .export-button, .goals-section button, .toggle-button {
+    padding: 10px 20px;
+    background-color: #6a4b8e;
+    color: white;
+    border: none;
+    border-radius: 8px;
+    cursor: pointer;
+    font-size: 1em;
+    margin-top: 15px;
+    transition: background-color 0.3s;
+}
+
+.add-button:hover, .export-button:hover, .goals-section button:hover, .toggle-button:hover {
+    background-color: #4b3061;
+}
+
+/* Transactions Table */
+.transaction-table {
+    background-color: #fff;
+    padding: 25px;
+    border-radius: 8px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    margin-top: 30px;
+    margin-bottom: 20px;
+  }
+  
+  .transaction-table h2 {
+    color: #6a4b8e;
+    margin-bottom: 15px;
+  }
+  
+  .transaction-table table {
+    width: 100%;
+    border-collapse: collapse;
+    margin-top: 10px;
+  }
+  
+  .transaction-table th,
+  .transaction-table td {
+    border: 1px solid #ddd;
+    text-align: left;
+    padding: 8px;
+  }
+  
+  .transaction-table th {
+    background-color: #f3f0ff;
+    color: #4b3061;
+  }
+  
+  .transaction-table tr:nth-child(even) {
+    background-color: #f9f8ff;
+  }
+  
+  .transaction-table tr:hover {
+    background-color: #f1eaff;
+  }
+  
+  .transaction-table td {
+    color: #4b3061;
+  }
+
+
+/* Goals & Budgets Tables */
+table {
+    width: 100%;
+    border-collapse: collapse;
+    margin-top: 15px;
+}
+
+th, td {
+    border: 1px solid #ddd;
+    padding: 8px;
+    text-align: left;
+}
+
+th {
+    background-color: #f3f0ff;
+    color: #4b3061;
+}
+
+tr:nth-child(even) {
+    background-color: #f9f8ff;
+}
+
+tr:hover {
+    background-color: #f1eaff;
+}
+
+td {
+    color: #4b3061;
+}
+
+/* Actions Column */
+.actions-column {
+    text-align: center;
+    width: 80px;
+}
+
+.action-icon {
+    font-size: 0.9em;
+    margin: 0 10px;
+    cursor: pointer;
+    transition: transform 0.2s ease, color 0.2s ease;
+}
+
+.edit-icon {
+    color: #6a4b8e;
+}
+
+.edit-icon:hover {
+    color: #4b3061;
+    transform: scale(1.2);
+}
+
+.delete-icon {
+    color: #6a4b8e;
+}
+
+.delete-icon:hover {
+    color: #4b3061;
+    transform: scale(1.2);
+}
+
+/* Budget and Goal Pop-Up Toggles */
+.toggle-button-container {
+    text-align: center;
+    margin-top: 15px;
+}
+
+.hidden {
+    display: none;
+}
+
+/* Charts Container */
+.charts-container {
+    display: flex;
+    justify-content: space-between;
+    gap: 20px;
+    margin-top: 20px; 
+    padding: 20px;
+    background-color: #fff;
+    border-radius: 8px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+}
+
+.budget-overview, .goal-progress {
+    font-size: 0.9em;
+    color: #4b3061;
+    flex: 1;
+    text-align: center;
+}
+
+/* Category Spend (Doughnut Chart) */
+.category-spend {
+    flex: 0 0 300px; /* Fix the width of the Doughnut Chart container */
+    text-align: center;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    border-right: 1px solid #ddd; /* Add a dividing line between charts */
+    padding-right: 20px;
+}
+
+.category-spend canvas {
+    max-width: 200px; /* Smaller size for the Doughnut Chart */
+    height: auto;
+    margin: auto;
+}
+
+/* Doughnut Chart Labeling */
+.category-spend h2 {
+    font-size: 1.2em;
+    color: #4b3061;
+    margin-bottom: 15px;
+}
+
+/* Income Expense Trend (Line Graph) */
+.income-expense-trend {
+    flex: 1; 
+    text-align: center;
+    padding-left: 20px;
+}
+
+.income-expense-trend canvas {
+    max-width: 100%;
+    height: auto;
+}
+
+.income-expense-trend h2 {
+    font-size: 1.2em;
+    color: #4b3061;
+    margin-bottom: 15px;
+}
+
+/* Footer */
+.footer {
+    text-align: center;
+    padding: 10px;
+    color: #6a4b8e;
+}
