@@ -269,18 +269,18 @@ td {
 
 /* Category Spend (Doughnut Chart) */
 .category-spend {
-    flex: 0 0 300px; /* Fix the width of the Doughnut Chart container */
+    flex: 0 0 300px;
     text-align: center;
     display: flex;
     flex-direction: column;
     align-items: center;
     justify-content: center;
-    border-right: 1px solid #ddd; /* Add a dividing line between charts */
+    border-right: 1px solid #ddd;
     padding-right: 20px;
 }
 
 .category-spend canvas {
-    max-width: 200px; /* Smaller size for the Doughnut Chart */
+    max-width: 200px;
     height: auto;
     margin: auto;
 }

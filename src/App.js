@@ -15,8 +15,10 @@ import {
 import axios from 'axios';
 import './App.css';
 
+// Register Chart.js components for visualizations
 ChartJS.register(ArcElement, LineElement, BarElement, PointElement, CategoryScale, LinearScale, Tooltip, Legend, Filler);
 
+// Custom plugin for displaying the total in the center of the Doughnut chart
 const doughnutCenterTextPlugin = {
   id: 'doughnutCenterText',
   beforeDraw(chart) {
@@ -34,14 +36,17 @@ const doughnutCenterTextPlugin = {
 };
 
 function App() {
+  // State hooks for managing transactions, budgets, goals, and form input data
   const [transactions, setTransactions] = useState([]);
   const [transactionType, setTransactionType] = useState('income');
   const [editTransaction, setEditTransaction] = useState(null);
+ 
   const [budgets, setBudgets] = useState([]);
   const [goals, setGoals] = useState([]);
   const [goalTitle, setGoalTitle] = useState('');
   const [goalAmount, setGoalAmount] = useState('');
   const [goalTargetDate, setGoalTargetDate] = useState('');
+  
   const [isRecurring, setIsRecurring] = useState(false);
   const [frequency, setFrequency] = useState('monthly');
 
@@ -51,8 +56,10 @@ function App() {
   const [showBudgetsTable, setShowBudgetsTable] = useState(false);
   const [showGoalsTable, setShowGoalsTable] = useState(false);
 
+  // Available categories for transactions and budgets
   const categories = ['Food', 'Utilities', 'Salaries', 'Rent', 'Entertainment', 'Healthcare', 'Other'];
 
+  // Fetch initial data for transactions, budgets, and goals from the backend
   useEffect(() => {
     const fetchData = async () => {
       try {
@@ -72,8 +79,12 @@ function App() {
   }, []);
   
 
+  // Set the default base URL for Axios
   axios.defaults.baseURL = 'http://localhost:5000';
 
+   /**
+   * Handles adding or updating a transaction.
+   */
   const handleAddTransaction = async (event) => {
     event.preventDefault();
     const form = event.target;
@@ -90,6 +101,7 @@ function App() {
 
     try {
       if (editTransaction) {
+        // Update transaction
         await axios.put(`/api/transactions/${editTransaction._id}`, newTransaction);
         setTransactions((prev) =>
           prev.map((transaction) =>
@@ -98,6 +110,7 @@ function App() {
         );
         setEditTransaction(null);
       } else {
+        // Add new transaction
         const response = await axios.post('/api/transactions', newTransaction);
         setTransactions((prev) => [...prev, response.data]);
       }
@@ -107,6 +120,9 @@ function App() {
     form.reset();
   };
 
+  /**
+   * Handles editing a transaction by setting the state with the current transaction details.
+   */
   const handleEditTransaction = (transaction) => {
     setEditTransaction(transaction);
     setTransactionType(transaction.type);
@@ -114,6 +130,9 @@ function App() {
     setFrequency(transaction.frequency || 'monthly');
   };
 
+  /**
+   * Handles deleting a transaction by ID.
+   */
   const handleDeleteTransaction = async (transactionId) => {
     try {
       await axios.delete(`/api/transactions/${transactionId}`);
@@ -123,40 +142,9 @@ function App() {
     }
   };
 
-  const handleAddGoal = async (event) => {
-    event.preventDefault();
-    const newGoal = {
-      title: goalTitle,
-      amount: parseFloat(goalAmount),
-      targetDate: goalTargetDate,
-    };
-    try {
-      await axios.post('/api/goals', newGoal);
-      setGoals((prev) => [...prev, newGoal]);
-      setGoalTitle('');
-      setGoalAmount('');
-      setGoalTargetDate('');
-    } catch (error) {
-      console.error('Error adding goal:', error);
-    }
-  };
-
-  const handleSetBudget = async (event) => {
-    event.preventDefault();
-    const form = event.target;
-    const category = form.elements['budgetCategory'].value;
-    const amount = parseFloat(form.elements['budgetAmount'].value);
-
-    try {
-      const newBudget = { category, amount };
-      await axios.post('/api/budgets', newBudget);
-      setBudgets((prev) => [...prev, newBudget]);
-    } catch (error) {
-      console.error('Error setting budget:', error);
-    }
-    form.reset();
-  };
-
+   /**
+   * Exports transaction data as a CSV file.
+   */
   const handleExportCSV = async () => {
     try {
       const response = await axios.get('/api/transactions/export', { responseType: 'blob' });
@@ -173,6 +161,9 @@ function App() {
     }
   };
 
+  /**
+   * Calculates the progress for each budget (spent vs. remaining).
+   */
   const calculateBudgetProgress = () => {
     return budgets.map((budget) => {
       const spent = transactions
@@ -182,6 +173,9 @@ function App() {
     });
   };
 
+  /**
+   * Calculates the progress for each goal (saved vs. target).
+   */
   const calculateGoalProgress = () => {
     return goals.map((goal) => {
       const saved = transactions
@@ -191,10 +185,16 @@ function App() {
     });
   };
 
+   /**
+   * Handles editing a budget by setting the current budget data in the form.
+   */
   const handleEditBudget = (budget) => {
     setEditingBudget(budget);
   };
 
+   /**
+   * Handles deleting a budget by ID.
+   */
   const handleDeleteBudget = async (id) => {
     try {
       await axios.delete(`/api/budgets/${id}`);
@@ -204,6 +204,9 @@ function App() {
     }
   };
 
+   /**
+   * Handles adding or updating a budget.
+   */
   const handleSaveBudget = async (event) => {
     event.preventDefault();
     const form = event.target;
@@ -213,6 +216,7 @@ function App() {
     };
     try {
       if (editingBudget) {
+        // Update existing budget
         await axios.put(`/api/budgets/${editingBudget._id}`, updatedBudget);
         setBudgets((prev) =>
           prev.map((budget) =>
@@ -221,6 +225,7 @@ function App() {
         );
         setEditingBudget(null);
       } else {
+        // Add new budget
         const response = await axios.post('/api/budgets', updatedBudget);
         setBudgets((prev) => [...prev, response.data]);
       }
@@ -230,6 +235,9 @@ function App() {
     form.reset();
   };
 
+  /**
+   * Handles editing a goal by populating the form with its current details.
+   */
   const handleEditGoal = (goal) => {
     setEditingGoal(goal);
     setGoalTitle(goal.title);
@@ -237,7 +245,9 @@ function App() {
     setGoalTargetDate(goal.targetDate);
   };
 
-
+  /**
+   * Handles deleting a goal by ID.
+   */
   const handleDeleteGoal = async (goalId) => {
     try {
       await axios.delete(`/api/goals/${goalId}`);
@@ -247,12 +257,15 @@ function App() {
     }
   };
 
+  /**
+   * Handles adding or updating a goal.
+   */
   const handleSaveGoal = async (event) => {
     event.preventDefault();
     const form = event.target;
   
     // Get the date input value
-    const targetDate = form.elements['goalTargetDate'].value;
+    const targetDate = form.elements['goalTargetDate'].value; // Retrieve date in yyyy-MM-dd format
   
     const updatedGoal = {
       title: form.elements['goalTitle'].value,
@@ -262,6 +275,7 @@ function App() {
   
     try {
       if (editingGoal) {
+        // Update goal
         await axios.put(`/api/goals/${editingGoal._id}`, updatedGoal);
         setGoals((prev) =>
           prev.map((goal) =>
@@ -270,6 +284,7 @@ function App() {
         );
         setEditingGoal(null);
       } else {
+        // Add new goal
         const response = await axios.post('/api/goals', updatedGoal);
         setGoals((prev) => [...prev, response.data]);
       }
@@ -279,9 +294,9 @@ function App() {
     form.reset();
   };
   
-
-  
-
+  /**
+   * Memoized data for the budget overview bar chart.
+   */
   const budgetData = useMemo(() => {
     const progress = calculateBudgetProgress();
     return {
@@ -301,6 +316,9 @@ function App() {
     };
   }, [budgets, transactions]);
 
+   /**
+   * Memoized data for the goals progress line chart.
+   */
   const goalLineData = useMemo(() => {
     const progress = calculateGoalProgress();
     return {
@@ -324,14 +342,9 @@ function App() {
     };
   }, [goals, transactions]);
 
-  const expenseTotal = useMemo(
-    () =>
-      transactions
-        .filter((transaction) => transaction.type === 'expense')
-        .reduce((acc, transaction) => acc + transaction.amount, 0),
-    [transactions]
-  );
-
+   /**
+   * Memoized data for the expense category doughnut chart.
+   */
   const categoryData = useMemo(() => {
     const categoryExpenses = transactions.reduce((acc, transaction) => {
       if (transaction.type === 'expense') {
@@ -353,6 +366,9 @@ function App() {
     };
   }, [transactions]);
 
+  /**
+   * Memoized data for the income vs. expense trend line chart.
+   */
   const incomeExpenseTrendData = useMemo(() => {
     const monthlyIncome = [];
     const monthlyExpenses = [];
@@ -402,6 +418,9 @@ function App() {
     };
   }, [transactions]);
 
+  /**
+   * Renders the application UI.
+   */
   return (
     <div className="App">
       <header className="header">
