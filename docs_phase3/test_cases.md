@@ -23,4 +23,3 @@
 ## Test Case 6: View Financial Reports
 - **Action:** Navigate to the "Reports" section.
 - **Expected Result:** Charts and graphs are displayed accurately, reflecting current data.
- 
