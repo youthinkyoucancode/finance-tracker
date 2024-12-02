@@ -1,7 +1,7 @@
 # Test Cases for Personal Finance Tracker
 
 ## Test Case 1: Add a New Transaction
-- **Action:** Click the "Add Transaction" button. Fill in the required fields (e.g., Title: "Groceries," Amount: "200," Category: "Food").
+- **Action:** Fill in the required fields (e.g., Title: "Groceries," Amount: "200," Category: "Food"). Click the "Add Transaction" button. 
 - **Expected Result:** The transaction is displayed in the Transactions table with correct details.
 
 ## Test Case 2: Delete a Transaction
@@ -13,7 +13,7 @@
 - **Expected Result:** The transaction is updated and displayed with the new details.
 
 ## Test Case 4: Set and View Budgets
-- **Action:** Navigate to the "Budgets" section. Add a new budget (e.g., Category: "Food," Amount: "500"). Save the budget.
+- **Action:** Navigate to the "Manage Budgets" section. Add a new budget (e.g., Category: "Food," Amount: "500"). Save the budget.
 - **Expected Result:** The budget is displayed in the list and reflected in the bar chart.
 
 ## Test Case 5: Export Transactions to CSV
