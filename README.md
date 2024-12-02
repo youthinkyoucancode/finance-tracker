@@ -1,73 +1,81 @@
-# Getting Started with Create React App
+# Personal Finance Tracker
 
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
+## Project Description
 
-## Available Scripts
+The Personal Finance Tracker is a web application designed to help users manage their finances efficiently by tracking income, expenses, budgets, and goals. It features an intuitive interface, insightful visual reports, and functionality for recurring transactions. This application is optimized for use on desktop browsers.
 
-In the project directory, you can run:
+## Features
 
-### `npm start`
+- Add, edit, and delete income or expense transactions.
+- Set budgets for specific categories and track progress.
+- Create and monitor financial goals.
+- Export transaction history as a CSV file.
+- View spending trends through interactive charts and graphs.
 
-Runs the app in the development mode.\
-Open [http://localhost:3000](http://localhost:3000) to view it in your browser.
+## Technologies Used
 
-The page will reload when you make changes.\
-You may also see any lint errors in the console.
+- **Frontend**: React.js
+- **Backend**: Node.js with Express.js
+- **Database**: MongoDB
+- **Charts**: Chart.js
+- **HTTP Client**: Axios
 
-### `npm test`
+## Installation Instructions
 
-Launches the test runner in the interactive watch mode.\
-See the section about [running tests](https://facebook.github.io/create-react-app/docs/running-tests) for more information.
+### Prerequisites
+- Node.js (v14 or above)
+- MongoDB (v4.4 or above)
+- npm (Node Package Manager)
 
-### `npm run build`
+### Steps to Install and Run
+1. Clone the repository:
+   ```bash
+   git clone https://github.com/youthinkyoucancode/finance-tracker.git
+   cd finance-tracker
+   ```
 
-Builds the app for production to the `build` folder.\
-It correctly bundles React in production mode and optimizes the build for the best performance.
+### Install Dependencies
+To install the required dependencies, use the following command:
+```bash
+npm install
+```
 
-The build is minified and the filenames include the hashes.\
-Your app is ready to be deployed!
+### Set up the Environment Variables
+1. Create a `.env` file in the root directory.
+2. Add the following variables:
+```plaintext
+DB_URI=<your MongoDB connection string>
+PORT=3000
+```
 
-See the section about [deployment](https://facebook.github.io/create-react-app/docs/deployment) for more information.
+### Start the Application
+Run the following command to start the application:
+```bash
+npm start
+```
 
-### `npm run eject`
+### Access the Application
+Once the application is running, open your browser and visit:
+```plaintext
+http://localhost:3000
+```
 
-**Note: this is a one-way operation. Once you `eject`, you can't go back!**
+## Usage Instructions
 
-If you aren't satisfied with the build tool and configuration choices, you can `eject` at any time. This command will remove the single build dependency from your project.
+### Adding a Transaction
+1. Go to the "Add Transaction" section.
+2. Enter details such as Title, Category, Amount, and Date.
+3. Click "Submit" to save the transaction.
 
-Instead, it will copy all the configuration files and the transitive dependencies (webpack, Babel, ESLint, etc) right into your project so you have full control over them. All of the commands except `eject` will still work, but they will point to the copied scripts so you can tweak them. At this point you're on your own.
+### Viewing Financial Reports
+1. Navigate to the "Reports" section.
+2. Explore interactive charts showing your income, expenses, and spending trends.
 
-You don't have to ever use `eject`. The curated feature set is suitable for small and middle deployments, and you shouldn't feel obligated to use this feature. However we understand that this tool wouldn't be useful if you couldn't customize it when you are ready for it.
+### Exporting Transactions
+1. Go to the "Transactions" section.
+2. Click "Export to CSV" to download your transaction history in a CSV file.
 
-## Learn More
+## Limitations
 
-You can learn more in the [Create React App documentation](https://facebook.github.io/create-react-app/docs/getting-started).
-
-To learn React, check out the [React documentation](https://reactjs.org/).
-
-### Code Splitting
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/code-splitting](https://facebook.github.io/create-react-app/docs/code-splitting)
-
-### Analyzing the Bundle Size
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size](https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size)
-
-### Making a Progressive Web App
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app](https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app)
-
-### Advanced Configuration
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/advanced-configuration](https://facebook.github.io/create-react-app/docs/advanced-configuration)
-
-### Deployment
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/deployment](https://facebook.github.io/create-react-app/docs/deployment)
-
-### `npm run build` fails to minify
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify](https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify)
-# finance-tracker
-A web app for tracking finances, managing budgets, and setting goals.
-
+- This application is designed for **desktop browsers only**.
+- Mobile responsiveness is not implemented.
