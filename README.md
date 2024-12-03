@@ -44,8 +44,8 @@ npm install
 1. Create a `.env` file in the root directory.
 2. Add the following variables:
 ```plaintext
-DB_URI=<your MongoDB connection string>
-PORT=3000
+MONGO_URI=<your MongoDB connection string>
+PORT=5000
 ```
 
 ### Start the Application
