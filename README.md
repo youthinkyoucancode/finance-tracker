@@ -39,14 +39,15 @@ The Personal Finance Tracker is a web application designed to help users manage 
    ```bash
    cd finance-tracker-backend
    ```
-2. Install the required dependencies:
-   ```bash
-   npm install
-   ```
-3. Create a `.env` file in the `personal-finance-backend` folder with the following content (or replace if existing):
+2. Create a `.env` file in the `personal-finance-backend` folder with the following content (or replace if existing):
    ```plaintext
    MONGO_URI=<your MongoDB connection string>
    PORT=5000
+   ```
+   - Replace <your MongoDB connection string> with your actual connection string (e.g., from MongoDB Atlas or local MongoDB).
+3. Install the required dependencies:
+   ```bash
+   npm install
    ```
 4. Start the backend server:
    ```bash
@@ -58,19 +59,19 @@ The Personal Finance Tracker is a web application designed to help users manage 
    ```bash
    cd finance-tracker
    ```
-3. Install the required dependencies:
-   ```bash
-   npm install
-   ```
-5. Create a `.env` file in the `finance-tracker` folder with the following content (if not existing):
+2. Create a `.env` file in the `finance-tracker` folder with the following content (if not existing):
    ```plaintext
    REACT_APP_API_URL=http://localhost:5000
    ```
-7. Add the following `proxy` entry to the `package.json` file in the `finance-tracker` folder (if not existing):
+3. Add the following `proxy` entry to the `package.json` file in the `finance-tracker` folder (if not existing):
    ```json
    "proxy": "http://localhost:5000"
    ```
-9. Start the frontend development server:
+4. Install the required dependencies:
+   ```bash
+   npm install
+   ```
+5. Start the frontend development server:
    ```bash
    npm start
    ```
