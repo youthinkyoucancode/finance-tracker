@@ -28,37 +28,59 @@ The Personal Finance Tracker is a web application designed to help users manage 
 - npm (Node Package Manager)
 
 ### Steps to Install and Run
-1. Clone the repository:
+#### 1. Clone the repository:
    ```bash
    git clone https://github.com/youthinkyoucancode/finance-tracker.git
    cd finance-tracker
    ```
 
-### Install Dependencies
-To install the required dependencies, use the following command:
-```bash
-npm install
-```
+#### 2. Set Up the Backend
+1. Navigate to the `finance-tracker-backend` folder:
+   ```bash
+   cd finance-tracker-backend
+   ```
+2. Install the required dependencies:
+   ```bash
+   npm install
+   ```
+3. Create a `.env` file in the `personal-finance-backend` folder with the following content (or replace if existing):
+   ```plaintext
+   MONGO_URI=<your MongoDB connection string>
+   PORT=5000
+   ```
+4. Start the backend server:
+   ```bash
+   npm start
+   ```
 
-### Set up the Environment Variables
-1. Create a `.env` file in the root directory.
-2. Add the following variables:
-```plaintext
-MONGO_URI=<your MongoDB connection string>
-PORT=5000
-```
+#### 3. Set Up the Frontend
+1. Navigate back to the `finance-tracker` folder:
+   ```bash
+   cd finance-tracker
+   ```
+3. Install the required dependencies:
+   ```bash
+   npm install
+   ```
+5. Create a `.env` file in the `finance-tracker` folder with the following content (if not existing):
+   ```plaintext
+   REACT_APP_API_URL=http://localhost:5000
+   ```
+7. Add the following `proxy` entry to the `package.json` file in the `finance-tracker` folder (if not existing):
+   ```json
+   "proxy": "http://localhost:5000"
+   ```
+9. Start the frontend development server:
+   ```bash
+   npm start
+   ```
 
-### Start the Application
-Run the following command to start the application:
-```bash
-npm start
-```
-
-### Access the Application
-Once the application is running, open your browser and visit:
-```plaintext
-http://localhost:3000
-```
+#### 4. Access the Application:
+Once both the backend and frontend servers are running:
+- Open your browser and navigate to:
+  ```plaintext
+  http://localhost:3000
+  ```
 
 ## Usage Instructions
 
