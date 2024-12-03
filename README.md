@@ -85,9 +85,9 @@ Once both the backend and frontend servers are running:
 ## Usage Instructions
 
 ### Adding a Transaction
-1. Go to the "Add Transaction" section.
+1. Go to the "Add a New Transaction" section.
 2. Enter details such as Title, Category, Amount, and Date.
-3. Click "Submit" to save the transaction.
+3. Click "Add Transaction" to save the transaction.
 
 ### Viewing Financial Reports
 1. Navigate to the "Reports" section.
@@ -95,7 +95,7 @@ Once both the backend and frontend servers are running:
 
 ### Exporting Transactions
 1. Go to the "Transactions" section.
-2. Click "Export to CSV" to download your transaction history in a CSV file.
+2. Click "Export Transactions to CSV" to download your transaction history in a CSV file.
 
 ## Limitations
 
